@@ -24,8 +24,8 @@ export class TaskManagerComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("WIp");
-    
+  console.log(this.taskForm.value);
+      
   }
 
 }
