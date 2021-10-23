@@ -1,31 +1,47 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { ChangeDetectorRef, Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { EditSettingsModel, GanttComponent } from '@syncfusion/ej2-angular-gantt';
+import { DataService } from 'src/app/service/data.service';
+import { DataManager, WebApiAdaptor } from '@syncfusion/ej2-data';
 @Component({
   selector: 'app-task-manager',
   templateUrl: './task-manager.component.html',
-  styleUrls: ['./task-manager.component.scss']
+  styleUrls: ['./task-manager.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TaskManagerComponent implements OnInit {
-  taskForm: FormGroup;
+  data: any = []
+  taskSettings: object = {};
+  editDialogFields: object[] = [];
+  resourceNameMapping: string = '';
+  resourceIdMapping: string = '';
+  resources: object[] = [];
+  labelSettings: object = {};
+  editSettings!: EditSettingsModel;
+  @ViewChild('gantt')
+  ganttObj!: GanttComponent;
+  columns: ({ field: string; width: number; } | { field: string; width?: undefined; })[];
+  projectStartDate: Date = new Date();
+  projectEndDate: Date = new Date();
+  splitterSettings: { columnIndex: number; };
 
+  constructor(private dataService: DataService) {
 
-  constructor(private fb: FormBuilder,) {
-    this.taskForm = this.fb.group({
-      'taskid':[],
-      'taskName':[],
-      'taskStartDate':[],
-      'taskEndDate':[],
-      'taskParentId':[]
-    })
-   }
-
+    
+  }
   ngOnInit(): void {
+
   }
 
-  onSubmit(): void {
-  console.log(this.taskForm.value);
-      
+  add(): void {
+    // this.ganttObj.editModule.dialogModule.openAddDialog();
+    this.getRemoteTaskData()
+  };
+
+  getRemoteTaskData = () => {
+    this.dataService.getRemoteTask()
+      .subscribe(resource => {
+        this.data = resource;
+      });
   }
 
 }

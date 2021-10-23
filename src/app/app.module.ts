@@ -19,7 +19,6 @@ import { TaskManagerModule } from './components/task-manager/task-manager.module
     HttpClientModule,
     AppRoutingModule,
     TaskManagerModule,
-    GanttModule,
     MenuModule,
   ],
   providers: [],

@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
+  myUrl: string = 'http://localhost:3000'
   constructor(private http: HttpClient) { }
 
   getTaskData = () => {
@@ -29,4 +30,7 @@ export class DataService {
     ];
   }
 
+  getRemoteTask = () => {
+   return this.http.get(`${this.myUrl}/get-task-list`)
+  }
 }
