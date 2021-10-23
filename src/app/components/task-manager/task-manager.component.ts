@@ -33,7 +33,6 @@ export class TaskManagerComponent implements OnInit {
   }
 
   add(): void {
-    // this.ganttObj.editModule.dialogModule.openAddDialog();
     this.getRemoteTaskData()
   };
 
