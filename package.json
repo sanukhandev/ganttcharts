@@ -24,6 +24,7 @@
     "@ngrx/store": "^12.5.0",
     "@syncfusion/ej2-angular-gantt": "^19.3.45",
     "@syncfusion/ej2-angular-navigations": "^19.3.45",
+    "jspdf": "^2.4.0",
     "rxjs": "~6.6.0",
     "ts": "^0.2.2",
     "tslib": "^2.3.0",

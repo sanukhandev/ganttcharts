@@ -21,6 +21,9 @@
             <button (click)="add()" class="bg-grey-500 hover:bg-grey-700 text-grey-800 font-bold py-2 px-4 border border-grey-700">
                 Button
             </button>
+            <button (click)="export()" class="bg-grey-500 hover:bg-grey-700 text-grey-800 font-bold py-2 px-4 border border-grey-700">
+                export
+            </button>
         </div>
     </div>
 </div>
@@ -30,7 +33,7 @@
         <div>
             <h2 class="text-gray-800 text-3xl font-semibold times-font">Gantt Chart</h2>
         </div>
-        <div class="mt-2 py-4 px-4" *ngIf="data && data.length > 0">
+        <div class="mt-2 py-4 px-4" id="test" *ngIf="data && data.length > 0">
         <app-ej-gannt-chart [data]="data"></app-ej-gannt-chart>
         </div>
     </div>
